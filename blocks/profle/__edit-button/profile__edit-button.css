@@ -1,0 +1,15 @@
+.profile__edit-button{
+    height: fit-content;
+    margin-top: 15px;
+    transition: 0.4s;
+}
+.profile__edit-button:hover{
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.4s;
+}
+@media screen and (max-width: 1023px){
+    .profile__edit-button{
+        margin-top: 25px;
+    }
+}

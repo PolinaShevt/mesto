@@ -1,0 +1,8 @@
+.section__header{
+    margin-top: 45px;
+}
+@media screen and (max-width:879px){
+    .section__header{
+        max-width: 100%;
+    }
+}
