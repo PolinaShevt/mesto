@@ -1,8 +1,14 @@
 .section__header{
     margin-top: 45px;
 }
-@media screen and (max-width:879px){
+
+@media screen and (max-width: 879px){
     .section__header{
         max-width: 100%;
+    }
+}
+@media screen and (max-width: 767px){
+    .section__header{
+        margin-top: 28px;
     }
 }
