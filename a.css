@@ -1,0 +1,21 @@
+.popup{
+    position: fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background-color: black;
+    opacity: 0.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.popup__body{
+    background-color: white;
+    color: black;
+    padding: 34px 36px 37px 36px;
+    box-sizing: border-box;
+    width: 430px;
+    position: relative;
+    border-radius: 10px;
+}
