@@ -5,5 +5,7 @@
 @media screen and (max-width: 767px){
     .header__bottom-line{
         margin-top: 31.6px;
+        margin-right: -19px;
+        margin-left: -19px;
     }
 }
