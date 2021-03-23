@@ -2,4 +2,10 @@
     height: fit-content;
     display: flex;
     align-self: center;
+    transition: 0.4s;
+}
+.profile__add-button:hover{
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.4s;
 }
