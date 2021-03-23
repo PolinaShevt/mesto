@@ -1,0 +1,17 @@
+.popup__form_submit-btn{
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    padding-top: 14px;
+    padding-bottom: 18px;
+    box-sizing: border-box;
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: 400;
+    font-family: inherit;
+    cursor: pointer;
+}
+.popup__form_submit-btn:hover{
+    opacity: 0.8;
+}

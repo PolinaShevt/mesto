@@ -5,3 +5,9 @@
     margin: 0 0 54px 0;
     font-family: inherit;
 }
+@media screen and (max-width: 500px){
+    .popup__title{
+        font-size: 18px;
+        margin: 0 0 75px 0;
+    }
+}
