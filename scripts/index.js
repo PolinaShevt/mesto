@@ -3,8 +3,8 @@ let openPopupBtn = document.getElementById('edit-btn');
 let closePopupBtn = document.querySelector('.popup__close-btn');
 let currentName = document.querySelector('.profile__title');
 let currentDescription = document.querySelector('.profile__subtitle');
-let newName = document.querySelector('.popup__form_type_full-name');
-let newDescription = document.querySelector('.popup__form_type_about-you');
+let newName = document.querySelector('.popup__full-name-input');
+let newDescription = document.querySelector('.popup__about-you-input');
 let popupForm = document.querySelector('.popup__form');
 
 function openPopup() {
