@@ -1,4 +1,4 @@
-.popup__form_submit-btn{
+.popup__submit-btn{
     background-color: black;
     color: white;
     border: none;
@@ -12,6 +12,6 @@
     font-family: inherit;
     cursor: pointer;
 }
-.popup__form_submit-btn:hover{
+.popup__submit-btn:hover{
     opacity: 0.8;
 }
