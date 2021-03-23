@@ -5,4 +5,5 @@
     align-items: center;
     color: black;
     box-sizing: border-box;
+    font-family: inherit;
 }
