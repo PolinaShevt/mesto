@@ -1,3 +1,4 @@
+@import url(../vendor/normalize.css);
 @import url(../vendor/fonts/fonts.css);
 @import url(../blocks/page/page.css);
 @import url(../blocks/header/header.css);
@@ -12,7 +13,6 @@
 @import url(../blocks/profle/__edit-button/profile__edit-button.css);
 @import url(../blocks/profle/__edit-button-container/profile__edit-button-container.css);
 @import url(../blocks/profle/__avatar/profile__avatar.css);
-@import url(../blocks/profle/__add-button-container/profile__add-button-container.css);
 @import url(../blocks/profle/__add-button/profile__add-button.css);
 @import url(../blocks/places/places.css);
 @import url(../blocks/cards/cards.css);

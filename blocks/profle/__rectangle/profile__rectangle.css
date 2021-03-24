@@ -9,7 +9,14 @@
     align-items: center;
     background: none;
     outline: none;
+    align-self: center;
+    transition: 0.4s;
  }
+ .profile__rectnagle:hover{
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.4s;
+}
  @media screen and (max-width: 1023px){
      .profile__rectangle{
          width: 282px;
