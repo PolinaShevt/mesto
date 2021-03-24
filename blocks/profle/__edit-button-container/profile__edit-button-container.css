@@ -1,3 +1,13 @@
 .profile__edit-button-container{
     display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    width: calc(294px + 24px + 18px);/* ширина текста+кнопка+отступ (не уверена, что это вообще адекватно, но работает..)*/
+}
+@media screen and (max-width:1023px){
+    .profile__edit-button-container{
+        width: calc(189px + 18px + 10px);
+        margin-top: 22px;
+        margin-bottom: 14px;
+    }
 }
