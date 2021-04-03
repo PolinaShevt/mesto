@@ -9,17 +9,29 @@
 
 <body class="page">
 
-    <div class="popup">
-            <div class="popup__content">
-                <h2 class="popup__title">Редактировать профиль</h2>
-                <button type="button" class="popup__close-btn"></button>
-                <form class="popup__form" name="popup">
-                    <input type="text" placeholder="Имя" name="full name" value="Жак-Ив Кусто" class="popup__form-text" id="full-name_input"> <!--решила не добалять класс, а написать идентификатор, тк стили у инпутов одинаковые-->
-                    <input type="text" placeholder="О себе" name="about you" value="Исследователь океана" class="popup__form-text" id="about-you__input">
-                    <button type="submit" class="popup__submit-btn">Сохранить</button>
-                </form>
-            </div>
+    <div class="popup popup_type_edit">
+        <div class="popup__content">
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <button type="button" class="popup__close-btn"></button>
+            <form class="popup__form" name="popup">
+                <input type="text" placeholder="Имя" name="full name" value="Жак-Ив Кусто" class="popup__form-text" id="full-name_input"> <!--решила не добалять класс, а написать идентификатор, тк стили у инпутов одинаковые-->
+                <input type="text" placeholder="О себе" name="about you" value="Исследователь океана" class="popup__form-text" id="about-you__input">
+                <button type="submit" class="popup__submit-btn">Сохранить</button>
+            </form>
         </div>
+    </div>
+
+    <div class="popup popup_type_add">
+        <div class="popup__content">
+            <h2 class="popup__title">Новое место</h2>
+            <button type="button" class="popup__close-btn"></button>
+            <form class="popup__form" name="popup">
+                <input type="text" placeholder="Название" name="name" class="popup__form-text">
+                <input type="text" placeholder="Ссылка на картинку" name="link" class="popup__form-text">
+                <button type="submit" class="popup__submit-btn">Создать</button>
+            </form>
+        </div>
+    </div>
 
    <header class="header">
         <img class="header__logo" src="./images/Vector.svg" alt="логотип страницы">
