@@ -1,4 +1,6 @@
 .popup{
+    position: relative;
+    z-index: 2;
     visibility: hidden;
     position: fixed;
     width: 100%;
