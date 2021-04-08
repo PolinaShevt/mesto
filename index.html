@@ -29,11 +29,22 @@
             <form class="popup__form" name="popup">
                 <input type="text" placeholder="Название" name="name" class="popup__form-text" id="input_place-name">
                 <input type="text" placeholder="Ссылка на картинку" name="link" class="popup__form-text" id="input_link">
-                <button type="submit" class="popup__submit-btn">Создать</button>
+                <button type="submit" class="popup__submit-btn" id="popup__submit-btn_type_add">Создать</button>
             </form>
         </div>
     </div>
 
+    <div class="popup popup_type_photoshow">
+        <div class="popup__content">
+            <button type="button" class="popup__close-btn" id="close-btn_type_photoshow"></button>
+            <figure>
+                <img class="popup__image">
+                <h3 class="popup__caption"></h3>
+            </figure>
+        </div>
+    </div>
+
+    
    <header class="header">
         <img class="header__logo" src="./images/Vector.svg" alt="логотип страницы">
     </header>
@@ -63,62 +74,19 @@
                 
                 <ul class="cards">
 
-                    <li class="card">
-                        <img class="card__image" alt="Карачаевск" src="./images/karachaevsk.jpg">
-                        <div class="card__delete-button"></div>
-                        <div class="card__description">
-                            <p class="card__name">Карачаевск</p>
-                            <button type="button" class="card__like-btn"></button>
-                        </div>
-                    </li>
-
-                    <li class="card">
-                        <img class="card__image" alt="Гора Эльбрус" src="./images/Elbrus.jpg">
-                        <div class="card__delete-button"></div>
-                        <div class="card__description">
-                            <p class="card__name">Гора Эльбрус</p>
-                            <button type="button" class="card__like-btn"></button>
-                        </div>
-                    </li>
-
-                    <li class="card">
-                        <img class="card__image" alt="Домбай" src="./images/dombai.jpg">
-                        <div class="card__delete-button"></div>
-                        <div class="card__description">
-                            <p class="card__name">Домбай</p>
-                            <button type="button" class="card__like-btn"></button>
-                        </div>
-                    </li>
-
-                    <li class="card">
-                        <img class="card__image" alt="Гора Эльбрус" src="./images/Elbrus.jpg">
-                        <div class="card__delete-button"></div>
-                        <div class="card__description">
-                            <p class="card__name">Гора Эльбрус</p>
-                            <button type="button" class="card__like-btn"></button>
-                        </div>
-                    </li>
-
-                    <li class="card">
-                        <img class="card__image" alt="Домбай" src="./images/dombai.jpg">
-                        <div class="card__delete-button"></div>
-                        <div class="card__description">
-                            <p class="card__name">Домбай</p>
-                            <button type="button" class="card__like-btn"></button>
-                        </div>
-                    </li>
-
-                    <li class="card">
-                        <img class="card__image" alt="Карачаевск" src="./images/karachaevsk.jpg">
-                        <div class="card__delete-button"></div>
-                        <div class="card__description">
-                            <p class="card__name">Карачаево-Черкесия</p>
-                            <button type="button" class="card__like-btn"></button>
-                        </div>
-                    </li>
-
                 </ul>
             </section>
+            <template class="list-item-template">
+                <li class="card">
+                    <img class="card__image" src="" alt="фотография места">
+                    <div class="card__delete-button"></div>
+                    <div class="card__description">
+                        <p class="card__name"></p>
+                        <button type="button" class="card__like-btn"></button>
+                    </div>
+                </li>
+            </template>
+                
         </main>
 
     <footer class="footer section">

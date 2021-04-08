@@ -23,85 +23,182 @@ const initialCards = [
       name: 'Байкал',
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
-  ];
+  ]; 
 
-//modals
+//модалки
 const editModal = document.querySelector('.popup_type_edit');
 const addCardModal = document.querySelector('.popup_type_add');
+const picModal = document.querySelector('.popup_type_photoshow');
 
-//open modal button
+//кнопки открытия модалок
 const openEditModalButton = document.querySelector('.profile__edit-button');
 const openAddCardModal = document.querySelector('.profile__rectangle');
 
-//close modal button
+//кнопки закрытия 
 const closeEditModalButton = document.getElementById('close-btn_type_edit');
 const closeAddCardModal = document.getElementById('close-btn_type_add');
+const closePicModal = document.querySelector('#close-btn_type_photoshow');
 
-//input
+//поля ввода для модалки редактирования
 const currentName = document.querySelector('.profile__title');
 const currentDescription = document.querySelector('.profile__subtitle');
-const currentPlaceName = document.querySelector('.card__name');
-const currentPhotoLink = document.querySelector('.card__image');
-
 const newName = document.getElementById('full-name_input');
 const newDescription = document.getElementById('about-you__input');
+
+//поля ввода для модалки добавления карточки
+const currentPlaceName = document.querySelector('.card__name');
+const currentPhotoLink = document.querySelector('.card__image');
 const newPlaceName = document.getElementById('input_place-name');
 const newPhotoLink = document.getElementById('input_link');
 
 const popupForm = document.getElementById('popup__form-type-edit');
 const editModalSubmitHandler = document.getElementById('popup__submit-btn_type_edit');
+const addModalSubmitHandler = document.getElementById('popup__submit-btn_type_add');
 
+const cardsContainer = document.querySelector('.cards');
 
-
-function openEditModal() {
-    newName.value = currentName.textContent;
-    newDescription.value = currentDescription.textContnet;
-    editModal.classList.add('popup_opened');
+//функция открытия и закрытия попапа
+function toggleModalWindow(modal) {
+    modal.classList.toggle('popup_opened');
 }
 
-function closeEditModal() {
-    editModal.classList.remove('popup_opened');
+//функция создания карточки 
+function createCard (item) {
+  const elementsTemplate = document.querySelector('.list-item-template').content;
+  const card = elementsTemplate.cloneNode(true);
+  const cardPic = card.querySelector('.card__image');
+  const cardTitle = card.querySelector('.card__name');
+  const cardLikeBtn = card.querySelector('.card__like-btn');
+  const cardDeleteBtn = card.querySelector('.card__delete-button');
+  console.log(cardDeleteBtn);
+  
+  
+
+  cardLikeBtn.addEventListener('click', () => cardLikeBtn.classList.toggle('card__like-btn_active'));
+  cardDeleteBtn.addEventListener('click', (item) => card.remove(item));
+
+
+  cardPic.src = item.link;
+  cardTitle.textContent = item.name;
+
+  return card
 }
 
-function formSubmitHandler(evt) {
+//добавление краточки в дом
+function addCard(item) {
+  cardsContainer.append(createCard(item));
+}
+
+
+//выполненеи функции addCard для каждого эл-та массива
+initialCards.forEach(item => {
+  addCard(item);
+}); 
+
+
+
+
+
+
+
+
+
+
+//функция сохранения изменение для редактирования
+function saveChangesEditModal(evt) {
     evt.preventDefault();
     currentName.textContent = newName.value;
     currentDescription.textContent = newDescription.value;
-    closeEditModal();
+    editModal.classList.remove('popup_opened');
 }
 
-openEditModalButton.addEventListener('click', openEditModal);
-closeEditModalButton.addEventListener('click', closeEditModal);
-editModalSubmitHandler.addEventListener('click', formSubmitHandler);
+//функция сохранения изменений для добавления 
+function saveChangesAddModal(evt) {
+    evt.preventDefault();
+    currentPlaceName.textContent = newPlaceName.value;
+    currentPlaceName.textContent = newPlaceName.value;
+    addCardModal.classList.remove('popup_opened');
+}
 
-// let popup = document.querySelector('.popup');
-// let openPopupBtn = document.querySelector('.profile__edit-button');
-// let closePopupBtn = document.querySelector('.popup__close-btn');
-// let currentName = document.querySelector('.profile__title');
-// let currentDescription = document.querySelector('.profile__subtitle');
-// let newName = document.getElementById('full-name_input')
-// let newDescription = document.getElementById('about-you__input');
-// let popupForm = document.querySelector('.popup__form');
 
-// function openPopup() {
-//     newName.value = currentName.textContent;
-//     newDescription.value = currentDescription.textContent;
-//     popup.classList.add('popup_opened');
+
+
+//обработчики кликов закрытия и открытия модалок
+openEditModalButton.addEventListener('click',() => toggleModalWindow(editModal));
+openAddCardModal.addEventListener('click',() => toggleModalWindow(addCardModal));
+closeEditModalButton.addEventListener('click',() => toggleModalWindow(editModal));
+closeAddCardModal.addEventListener('click',() => toggleModalWindow(addCardModal));
+closePicModal.addEventListener('click', () => toggleModalWindow(picModal));
+
+//обработчики кликов для сохранения измнеений
+editModalSubmitHandler.addEventListener('click', saveChangesEditModal);
+addModalSubmitHandler.addEventListener('click', saveChangesAddModal);
+
+
+// function makeCard(link, name){
+//     const cardItem = cardTemplate.querySelector('.card').cloneNode(true);
+
+//     const cardImage = cardItem.querySelector('.card__image');
+//     cardImage.src = src
+//     cardImage.alt = 
+//     cardItem.querySelector('.card__name').textContent = name;
+
+//     const deleteButton = cardItem.querySelector('.card__delete-button');
+
+//     deleteButton.addEventListener('click', (evt) => {
+//       cardItem.remove();
+//     });
+
+//     return cardItem;
+    
 // }
 
-// function closePopup() {
-//     popup.classList.remove('popup_opened');
+// initialCards.forEach((item) => {
+//     cardsContainer.append(makeCard(link, name))
+// });
+
+
+
+
+// initialCards.forEach(item => {
+//     const listItemTemplate = document.querySelector('.list-item-template').content.querySelector('.card');
+//     const listItem = listItemTemplate.cloneNode(true)
+//     const listItemTitle = listItem.querySelector('.card__name')
+//     const listItemPhoto = listItem.querySelector('.card__image')
+//     listItemTitile.textContent = item.name
+//     cards.append(card);
+    
+// })
+
+// likeBtn.forEach(function(e){
+//     e.addEventListener('click', function (evt) {
+//         evt.target.classList.toggle('card__like-btn_active')
+//     });
+// })
+
+
+// function toggleModalWindow(modal) {
+//     modal.classList.toggle('popup_opened');
 // }
 
-// function formSubmitHandler (evt) {
+// function saveChangesEditModal(evt) {
 //     evt.preventDefault();
 //     currentName.textContent = newName.value;
 //     currentDescription.textContent = newDescription.value;
-//     closePopup()
+//     editModal.classList.remove('popup_opened');
+// }
+// function saveChangesAddModal(evt) {
+//     evt.preventDefault();
+//     currentPlaceName.textContent = newPlaceName.value;
+//     currentPlaceName.textContent = newPlaceName.value;
+//     addCardModal.classList.remove('popup_opened');
 // }
 
-// openPopupBtn.addEventListener('click', openPopup)
-// closePopupBtn.addEventListener('click', closePopup)
-// popupForm.addEventListener('submit', formSubmitHandler)
 
 
+// editModalSubmitHandler.addEventListener('click', saveChangesEditModal);
+// addModalSubmitHandler.addEventListener('click', saveChangesAddModal);
+// openEditModalButton.addEventListener('click',() => toggleModalWindow(editModal));
+// openAddCardModal.addEventListener('click',() => toggleModalWindow(addCardModal));
+// closeEditModalButton.addEventListener('click',() => toggleModalWindow(editModal));
+// closeAddCardModal.addEventListener('click',() => toggleModalWindow(addCardModal));

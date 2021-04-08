@@ -13,5 +13,4 @@
 }
 .card__like-btn:focus{
     outline: none;
-    background-image: url(../../../images/active_like.svg);
 }
