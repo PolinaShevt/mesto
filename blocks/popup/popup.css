@@ -1,5 +1,4 @@
 .popup{
-    position: relative;
     z-index: 2;
     visibility: hidden;
     transition: visibility 0.3s, opacity 0.3s linear;
