@@ -101,7 +101,7 @@ function createCard (item) {
 
 //добавление краточки в дом
 function addCard(item) {
-  cardsContainer.append(createCard(item));
+  cardsContainer.prepend(createCard(item));
 }
 
 
