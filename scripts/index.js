@@ -125,6 +125,9 @@ function saveChangesAddModal(evt) {
    evt.preventDefault();
    const inputValue = newPlaceName.value
    const inputLink = newPhotoLink.value
+   addCard({name: inputValue, link: inputLink});
+   toggleModalWindow(addCardModal);
+   addForm.reset();
    
 }
 
