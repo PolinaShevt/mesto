@@ -81,10 +81,8 @@ function createCard (item) {
   const cardTitle = card.querySelector('.card__name');
   const cardLikeBtn = card.querySelector('.card__like-btn');
   const cardDeleteBtn = card.querySelector('.card__delete-button');
-  
   cardPic.src = item.link;
   cardTitle.textContent = item.name;
-
 
   cardPic.addEventListener('click', () =>{
     picModalImage.src = item.link;
