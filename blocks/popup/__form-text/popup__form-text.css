@@ -15,6 +15,3 @@
     outline: none;
     border-color: black;
 }
-.popup__form-text:invalid{
-    border-bottom: #FF0000;
-}

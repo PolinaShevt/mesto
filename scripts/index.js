@@ -131,7 +131,7 @@ function saveChangesAddModal(evt) {
 
 //обработчик сохранения новой карточки
 addForm.addEventListener('submit', saveChangesAddModal)
-
+enableValidation();
 //обработчики кликов закрытия и открытия модалок
 openEditModalButton.addEventListener('click',() => toggleModalWindow(editModal));
 openAddCardModal.addEventListener('click',() => toggleModalWindow(addCardModal));

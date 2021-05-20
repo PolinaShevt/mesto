@@ -14,8 +14,10 @@
             <h2 class="popup__title">Редактировать профиль</h2>
             <button type="button" class="popup__close-btn" id="close-btn_type_edit"></button>
             <form class="popup__form" name="popup" id="popup__form-type-edit">
-                <input type="text" placeholder="Имя" name="full name" value="Жак-Ив Кусто" class="popup__form-text" id="full-name_input">
-                <input type="text" placeholder="О себе" name="about you" value="Исследователь океана" class="popup__form-text" id="about-you__input">
+                <input type="text" placeholder="Имя" name="full name" value="Жак-Ив Кусто" class="popup__form-text" id="full-name_input" minlength="2" maxlength="40">
+                <span class="popup__input-error" id="full-name_input-error"></span>
+                <input type="text" placeholder="О себе" name="about you" value="Исследователь океана" class="popup__form-text" id="about-you__input" minlength="2" maxlength="200">
+                <span class="popup__input-error" id="about-you__input-error"></span>
                 <button type="submit" class="popup__submit-btn" id="popup__submit-btn_type_edit">Сохранить</button>
             </form>
         </div>
@@ -26,8 +28,10 @@
             <h2 class="popup__title">Новое место</h2>
             <button type="button" class="popup__close-btn" id="close-btn_type_add"></button>
             <form class="popup__form" name="popup" id="popup__form-type-add">
-                <input type="text" placeholder="Название" name="name" class="popup__form-text" id="input_place-name">
-                <input type="text" placeholder="Ссылка на картинку" name="link" class="popup__form-text" id="input_link">
+                <input type="text" placeholder="Название" name="name" class="popup__form-text" id="input_place-name" minlength="2" maxlength="30">
+                <span class="popup__input-error" id="input_place-name-error"></span>
+                <input type="url" placeholder="Ссылка на картинку" name="link" class="popup__form-text" id="input_link">
+                <span class="popup__input-error" id="input_link-error"></span>
                 <button type="submit" class="popup__submit-btn" id="popup__submit-btn_type_add">Создать</button>
             </form>
         </div>
