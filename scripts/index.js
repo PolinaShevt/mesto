@@ -163,11 +163,11 @@ addModalSubmitHandler.addEventListener('submit', saveChangesAddModal);
 //закрытие по клику на оверлэй
 
 const config = {
-  formSelector: '.popup',
-  inputSelector: '.popup__form-text',
-  inputErrorClass: '.popup__form-text_error',
-  errorClass: '.popup__input-error_avtive',
-  submitButtonSelector: '.popup__submit-btn',
+  formSelector: 'form',
+  inputSelector: 'popup__form-text',
+  inputErrorClass: 'popup__form-text_error',
+  errorClass: 'popup__input-error_avtive',
+  submitButtonSelector: 'popup__content',
 };
 
 enableValidation(config);

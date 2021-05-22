@@ -1,4 +1,4 @@
-const showInputError = (formElement, inputElement) => {
+const showInputError = (formElement, inputElement, config) => {
     const { inputErrorClass, errorClass } = config;
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.add(inputErrorClass);
@@ -6,7 +6,7 @@ const showInputError = (formElement, inputElement) => {
     errorElement.classList.add(errorClass);
 }
 
-const hideInputError = (formElement, inputElement) => {
+const hideInputError = (formElement, inputElement, config) => {
     const { inputErrorClass, errorClass } = config;
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.remove(inputErrorClass);
@@ -61,7 +61,8 @@ const setEventListeners = (formElement, config) => {
            toggleButtonState(buttonElement, inputList);
        })
     })
-   
+    // toggleButtonState(buttonElement, inputList);
+    
  }
 
 
