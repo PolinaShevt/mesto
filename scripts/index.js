@@ -69,6 +69,10 @@ const cardsContainer = document.querySelector('.cards');
 const picModalImage = picModal.querySelector('.popup__image');
 const picModalCaption = picModal.querySelector('.popup__caption');
 
+const overlay = Array.from(document.querySelectorAll('.popup'));
+
+
+
 
 //функция открытия модалки
 function openPopup (modal) {
@@ -79,6 +83,18 @@ function openPopup (modal) {
 function closePopup (modal) {
   modal.classList.remove('popup_opened');
 }
+
+//закрытие по клику на оверлэй
+function overlayHandler (evt) {
+  const popupOpened = document.querySelector('.popup_opened');
+  if(evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close-btn')){
+    closePopup(popupOpened);
+  }
+}
+
+editModal.addEventListener('mousedown', overlayHandler);
+addCardModal.addEventListener('mousedown', overlayHandler);
+picModal.addEventListener('mousedown', overlayHandler);
 
 
 //закрытия по esc
