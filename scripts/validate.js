@@ -61,8 +61,7 @@ const setEventListeners = (formElement, config) => {
            toggleButtonState(buttonElement, inputList);
        })
     })
-    // toggleButtonState(buttonElement, inputList);
-    
+    toggleButtonState(buttonElement, inputList);
  }
 
 
