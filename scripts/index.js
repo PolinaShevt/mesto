@@ -83,11 +83,6 @@ function openPopup (modal) {
   modal.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupByEsc);
 
-  const inputList = Array.from(modal.querySelectorAll('.popup__form-text'));
-  const buttonElement = modal.querySelector('.popup__submit-btn');
-
-  toggleButtonState(inputList, buttonElement, config);
-
 }
 
 //закрытия
@@ -166,7 +161,13 @@ function saveChangesAddModal(evt) {
 addForm.addEventListener('submit', saveChangesAddModal)
 //открытие модальных окон
 openEditModalButton.addEventListener('click',() => openPopup(editModal));
-openAddCardModal.addEventListener('click',() => openPopup(addCardModal));
+openAddCardModal.addEventListener('click',() => {
+  const inputList = Array.from(addCardModal.querySelectorAll('.popup__form-text'));
+  const buttonElement = addCardModal.querySelector('.popup__submit-btn');
+
+  toggleButtonState(buttonElement, inputList, config);
+  openPopup(addCardModal)
+});
 //закрытие модальных окон
 closeEditModalButton.addEventListener('click',() => {
   closePopup(editModal);
