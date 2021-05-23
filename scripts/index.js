@@ -52,14 +52,14 @@ const newDescription = document.getElementById('about-you__input');
 //карточка места
 const elementsTemplate = document.querySelector('.list-item-template').content.querySelector('.card');
 
-//поля ввода для модалки добавления карточки
-const currentPlaceName = elementsTemplate.querySelector('.card__name');
-const currentPhotoLink = elementsTemplate.querySelector('.card__image');
+
+
+
 const newPlaceName = document.getElementById('input_place-name');
 
 const newPhotoLink = document.getElementById('input_link');
 
-const popupForm = document.getElementById('popup__form-type-edit');
+
 const editModalSubmitHandler = document.getElementById('popup__submit-btn_type_edit');
 const addModalSubmitHandler = document.getElementById('popup__submit-btn_type_add');
 
@@ -69,38 +69,51 @@ const cardsContainer = document.querySelector('.cards');
 const picModalImage = picModal.querySelector('.popup__image');
 const picModalCaption = picModal.querySelector('.popup__caption');
 
-const overlay = Array.from(document.querySelectorAll('.popup'));
 
 
+//закрытия по esc
+function closePopupByEsc(evt) {
+  if(evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  }
+}  
 
-
-//функция открытия модалки
+//функция открытия модального окна
 function openPopup (modal) {
   modal.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupByEsc);
+
+  const inputList = Array.from(modal.querySelectorAll('.popup__form-text'));
+  const buttonElement = modal.querySelector('.popup__submit-btn');
+
+  toggleButtonState(inputList, buttonElement, config);
+
 }
 
 //закрытия
 function closePopup (modal) {
   modal.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupByEsc);
 }
 
 //закрытие по клику на оверлэй
 function overlayHandler (evt) {
-  const popupOpened = document.querySelector('.popup_opened');
   if(evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close-btn')){
+    const popupOpened = document.querySelector('.popup_opened');
     closePopup(popupOpened);
   }
 }
 
 
-//закрытия по esc
-function closePopupWithEsc (modal) {
-  document.addEventListener('keydown', (evt) => {
-    if(evt.key === 'Escape'){
-      closePopup(modal);
-    }
-  })
-}
+
+const updateInputValue = (inputElement, value) => {
+  inputElement.value = value;
+  inputElement.dispatchEvent(new Event('input'));
+};
+
+
+
 //функция создания карточки 
 function createCard (item) {
   const card = elementsTemplate.cloneNode(true);
@@ -143,7 +156,7 @@ function saveChangesEditModal(evt) {
     currentName.textContent = newName.value;
     currentDescription.textContent = newDescription.value;
     closePopup(editModal);
-    
+    editModal.reset();
 }
 
 function saveChangesAddModal(evt) {
@@ -153,8 +166,9 @@ function saveChangesAddModal(evt) {
    addCard({name: inputValue, link: inputLink});
    closePopup(addCardModal);
    addForm.reset();
-   
 }
+
+
 
 //обработчик сохранения новой карточки
 addForm.addEventListener('submit', saveChangesAddModal)
@@ -165,10 +179,6 @@ openAddCardModal.addEventListener('click',() => openPopup(addCardModal));
 closeEditModalButton.addEventListener('click',() => closePopup(editModal));
 closeAddCardModal.addEventListener('click',() => closePopup(addCardModal));
 closePicModal.addEventListener('click', () => closePopup(picModal));
-//вызов ф-ии закрытия по esc для каждого модального окна
-closePopupWithEsc(editModal);
-closePopupWithEsc(addCardModal);
-closePopupWithEsc(picModal);
 //обработчики кликов для сохранения измнеений
 editModalSubmitHandler.addEventListener('click', saveChangesEditModal);
 addModalSubmitHandler.addEventListener('submit', saveChangesAddModal);

@@ -21,7 +21,7 @@
         font-size: 14px;
     }
 }
-.popup__submit-btn:disabled{
+.popup__submit-btn:disabled {
     background-color: white;
     color: rgb(204, 204, 204);
     border: 1px solid  rgb(204, 204, 204);
