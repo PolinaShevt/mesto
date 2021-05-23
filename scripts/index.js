@@ -92,10 +92,6 @@ function overlayHandler (evt) {
   }
 }
 
-editModal.addEventListener('mousedown', overlayHandler);
-addCardModal.addEventListener('mousedown', overlayHandler);
-picModal.addEventListener('mousedown', overlayHandler);
-
 
 //закрытия по esc
 function closePopupWithEsc (modal) {
@@ -176,7 +172,11 @@ closePopupWithEsc(picModal);
 //обработчики кликов для сохранения измнеений
 editModalSubmitHandler.addEventListener('click', saveChangesEditModal);
 addModalSubmitHandler.addEventListener('submit', saveChangesAddModal);
-//закрытие по клику на оверлэй
+//обработчки кликов на оверлэй
+editModal.addEventListener('mousedown', overlayHandler);
+addCardModal.addEventListener('mousedown', overlayHandler);
+picModal.addEventListener('mousedown', overlayHandler);
+ 
 
 const config = {
   formSelector: '.popup__form',
