@@ -53,10 +53,9 @@ const newDescription = document.getElementById('about-you__input');
 const elementsTemplate = document.querySelector('.list-item-template').content.querySelector('.card');
 
 
-
-
+const currentPlaceName = elementsTemplate.querySelector('.card__name'); 
+const currentPhotoLink = elementsTemplate.querySelector('.card__image'); 
 const newPlaceName = document.getElementById('input_place-name');
-
 const newPhotoLink = document.getElementById('input_link');
 
 
@@ -104,13 +103,6 @@ function overlayHandler (evt) {
     closePopup(popupOpened);
   }
 }
-
-
-
-const updateInputValue = (inputElement, value) => {
-  inputElement.value = value;
-  inputElement.dispatchEvent(new Event('input'));
-};
 
 
 
@@ -176,8 +168,17 @@ addForm.addEventListener('submit', saveChangesAddModal)
 openEditModalButton.addEventListener('click',() => openPopup(editModal));
 openAddCardModal.addEventListener('click',() => openPopup(addCardModal));
 //закрытие модальных окон
-closeEditModalButton.addEventListener('click',() => closePopup(editModal));
-closeAddCardModal.addEventListener('click',() => closePopup(addCardModal));
+closeEditModalButton.addEventListener('click',() => {
+  closePopup(editModal);
+  newName.value = currentName.textContent;
+  newDescription.value = currentDescription.textContent;
+})
+  
+closeAddCardModal.addEventListener('click',() => {
+  closePopup(addCardModal);
+  newPlaceName.value = '';
+  newPhotoLink.value = '';
+});
 closePicModal.addEventListener('click', () => closePopup(picModal));
 //обработчики кликов для сохранения измнеений
 editModalSubmitHandler.addEventListener('click', saveChangesEditModal);
