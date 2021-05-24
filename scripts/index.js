@@ -67,8 +67,16 @@ const cardsContainer = document.querySelector('.cards');
 
 const picModalImage = picModal.querySelector('.popup__image');
 const picModalCaption = picModal.querySelector('.popup__caption');
+//список инпутов(ред)
+const inputListEditModal = Array.from(editModal.querySelectorAll('.popup__form-text'));
+//кнопка отправки(ред)
+const buttonElementEditModal = editModal.querySelector('.popup__submit-btn');
 
 
+//список инпутов(добавление)
+const inputListAddModal = Array.from(addCardModal.querySelectorAll('.popup__form-text'));
+//кнопка отправки(добавление)
+const buttonElementAddModal = addCardModal.querySelector('.popup__submit-btn');
 
 //закрытия по esc
 function closePopupByEsc(evt) {
@@ -160,26 +168,24 @@ function saveChangesAddModal(evt) {
 //обработчик сохранения новой карточки
 addForm.addEventListener('submit', saveChangesAddModal)
 //открытие модальных окон
-openEditModalButton.addEventListener('click',() => openPopup(editModal));
-openAddCardModal.addEventListener('click',() => {
-  const inputList = Array.from(addCardModal.querySelectorAll('.popup__form-text'));
-  const buttonElement = addCardModal.querySelector('.popup__submit-btn');
+openEditModalButton.addEventListener('click',() => {
+  toggleButtonState(buttonElementEditModal, inputListEditModal, config);
+  openPopup(editModal);
 
-  toggleButtonState(buttonElement, inputList, config);
-  openPopup(addCardModal)
+  newName.value = currentName.textContent; 
+  newDescription.value = currentDescription.textContent; 
 });
-//закрытие модальных окон
-closeEditModalButton.addEventListener('click',() => {
-  closePopup(editModal);
-  newName.value = currentName.textContent;
-  newDescription.value = currentDescription.textContent;
-})
-  
-closeAddCardModal.addEventListener('click',() => {
-  closePopup(addCardModal);
+
+openAddCardModal.addEventListener('click',() => {
+  toggleButtonState(buttonElementAddModal, inputListAddModal, config);
+  openPopup(addCardModal)
+
   newPlaceName.value = '';
   newPhotoLink.value = '';
 });
+//закрытие модальных окон
+closeEditModalButton.addEventListener('click',() => closePopup(editModal));
+closeAddCardModal.addEventListener('click',() => closePopup(addCardModal));
 closePicModal.addEventListener('click', () => closePopup(picModal));
 //обработчики кликов для сохранения измнеений
 editModalSubmitHandler.addEventListener('click', saveChangesEditModal);
