@@ -55,16 +55,15 @@ function saveChangesEditModal(evt) {
     currentName.textContent = newName.value;
     currentDescription.textContent = newDescription.value;
     closePopup(editModal);
-    editModal.reset();
 }
 
 function saveChangesAddModal(evt) {
    evt.preventDefault();
-   const item = {
+   const newCardItem = {
       name: newPlaceName.value,
       link: newPhotoLink.value,
    }
-   addCard(item);
+   addCard(newCardItem);
    closePopup(addCardModal);
    addForm.reset();
 }
@@ -78,9 +77,9 @@ addForm.addEventListener('submit', saveChangesAddModal)
 //открытие модальных окон
 openEditModalButton.addEventListener('click',() => {
   openPopup(editModal);
-  newName.value = currentName.textContent; 
-  newDescription.value = currentDescription.textContent; 
   profileEditFormValidator.repeatEnableValidation();
+  newName.value = currentName.textContent;  
+  newDescription.value = currentDescription.textContent;  
 });
 openAddCardModal.addEventListener('click',() => {
   openPopup(addCardModal)
@@ -95,7 +94,7 @@ closeAddCardModal.addEventListener('click',() => closePopup(addCardModal));
 closePicModal.addEventListener('click', () => closePopup(picModal));
 
 //обработчики кликов для сохранения измнеений
-editModalSubmitHandler.addEventListener('click', saveChangesEditModal);
+editModalSubmitHandler.addEventListener('submit', saveChangesEditModal);
 addModalSubmitHandler.addEventListener('submit', saveChangesAddModal);
 
 //обработчки кликов на оверлэй

@@ -1,7 +1,6 @@
 class FormValidator {
     constructor(config, form) {
         this._form = document.querySelector(form);
-        this._inputSelector = config.inputSelector;
         this._inputList = document.querySelectorAll(config.inputSelector)
         this._inputErrorClass = config.inputErrorClass;
         this._errorClass = config.errorClass;
@@ -31,7 +30,7 @@ class FormValidator {
             return !inputElement.validity.valid;});
     }
     _toggleButtonState = () => {
-        if(this._hasInvalidInput(this._inputList)) {
+        if(this._hasInvalidInput()) {
             this._submitButtonSelector.setAttribute('disabled', true);
         } else {
             this._submitButtonSelector.removeAttribute('disabled', true);
@@ -44,7 +43,6 @@ class FormValidator {
                 this._toggleButtonState();
             })
          })
-        this._toggleButtonState(this._submitButtonSelector, this._inputList);
     }
     enableValidation = () => {
         this._inputList.forEach(() => {
