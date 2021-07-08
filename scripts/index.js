@@ -30,6 +30,7 @@ function submitEditModal(evt) {
   currentName.textContent = newName.value;
   currentDescription.textContent = newDescription.value;
   closePopup(editModal);
+  editModal.reset(); 
 }
 
 function submitAddModal(evt) {
