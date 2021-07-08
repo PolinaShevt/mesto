@@ -11,11 +11,14 @@ profileEditFormValidator.enableValidation();
 const addCardFormValidator = new FormValidator(config, '.popup_type_add');
 addCardFormValidator.enableValidation();
 
-
-function addCard(item) {
+function generateCard(item) {
   const card = new Card(item, '.list-item-template');
   const cardList = card.createCard();
-  cardsContainer.prepend(cardList);
+  return cardList;
+}
+
+function addCard(item) {
+  cardsContainer.prepend(generateCard(item));
 }
 
 initialCards.forEach((item) => {
