@@ -4,6 +4,7 @@ const config = {
     inputErrorClass: 'popup__form-text_error',
     errorClass: 'popup__input-error_avtive',
     submitButtonSelector: '.popup__submit-btn',
+    disabledButtonClass: 'popup__submit-btn_disabled',
   };
     
     const initialCards = [
@@ -86,8 +87,9 @@ const config = {
     
     const cardsContainer = document.querySelector('.cards');
 
+    
     export { config, initialCards, editModal, addCardModal, picModal, addForm, openEditModalButton, openAddCardModal, closeEditModalButton, closeAddCardModal, closePicModal, currentName, currentDescription, newName, newDescription, elementsTemplate,
         currentPlaceName,  currentPhotoLink, newPlaceName, newPhotoLink, editModalSubmitHandler, addModalSubmitHandler, picModalImage,
-        picModalCaption, inputListEditModal, buttonElementEditModal, inputListAddModal, buttonElementAddModal, cardsContainer};
+        picModalCaption, inputListEditModal, buttonElementEditModal, inputListAddModal, buttonElementAddModal, cardsContainer };
 
     

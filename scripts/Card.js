@@ -1,5 +1,5 @@
-import { elementsTemplate, picModal, picModalImage, picModalCaption, cardsContainer } from './Constants.js';
-import { openPopup } from './index.js';
+import { picModal, picModalImage, picModalCaption } from './Constants.js';
+import { openPopup } from '../utils/utils.js';
 class Card {
     constructor(cardData, cardSelector) {
       this._cardName = cardData.name;
@@ -8,7 +8,7 @@ class Card {
       this._cardSelector = cardSelector;
     }
     _getCard = () => {
-        const cardItem = elementsTemplate.cloneNode(true);
+        const cardItem = document.querySelector(this._cardSelector).content.querySelector('.card').cloneNode(true);
         return cardItem;
     }
     createCard = () => {
@@ -18,7 +18,7 @@ class Card {
         cardImg.src = this._cardImgLink;
         cardImg.alt = this._cardAlt;
         this._setEventListeners();
-        return this._cardItem;
+        return this._cardItem; 
     }
     _setEventListeners = () => {
         this._cardItem.querySelector('.card__delete-button').addEventListener('click',() => this._deleteCard());
