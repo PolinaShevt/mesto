@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
     <title>mesto</title>
 </head>
 
@@ -17,12 +16,12 @@
                 <form class="popup__form" name="popup" id="popup__form-type-edit">
 
                     <div class="popup__input-area">
-                        <input type="text" placeholder="Имя" name="full name" value="Жак-Ив Кусто" class="popup__form-text" id="full-name_input" minlength="2" maxlength="40" required>
+                        <input type="text" placeholder="Имя" name="fullName" value="Жак-Ив Кусто" class="popup__form-text" id="full-name_input" minlength="2" maxlength="40" required>
                         <span class="popup__input-error" id="full-name_input-error"></span>
                     </div>
 
                     <div class="popup__input-area">
-                        <input type="text" placeholder="Вид деятельности" name="about you" value="Исследователь океана" class="popup__form-text" id="about-you__input" minlength="2" maxlength="200" required>
+                        <input type="text" placeholder="Вид деятельности" name="aboutYou" value="Исследователь океана" class="popup__form-text" id="about-you__input" minlength="2" maxlength="200" required>
                         <span class="popup__input-error" id="about-you__input-error"></span>
                     </div>
 
@@ -60,16 +59,15 @@
         <div class="popup__content popup__content_type_photoshow">
            <button type="button" class="popup__close-btn popup__close-btn_type_photoshow"  id="close-btn_type_photoshow"></button>
             <figure class="popup__image-area">
-                <img class="popup__image" src="#" alt="#">
+                <img class="popup__image" src="" alt="#">
                 <figcaption class="popup__caption"></figcaption>
             </figure>
         </div>
     </div>
-   
-
+    
     
    <header class="header">
-        <img class="header__logo" src="./images/Vector.svg" alt="логотип страницы">
+        <img class="header__logo" src="<%=require('./images/Vector.svg')%>" alt="логотип страницы">
     </header>
 
 
@@ -77,7 +75,7 @@
 
             <section class="profile section">
                 <div class="profile__info-place">
-                    <img  class="profile__avatar" src="./images/image.jpg" alt="Жак-Ив Кусто">
+                    <img  class="profile__avatar" src="<%=require('./images/image.jpg')%>" alt="Жак-Ив Кусто">
                     <div class="profile__info">
                         <div class="profile__edit-button-container">
                             <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -88,7 +86,7 @@
                     </div>
                 </div>
                 <button type="button" class="profile__rectangle">
-                    <img class="profile__add-button" src="./images/plus-btn.svg" alt="кнопка добавить">
+                    <img class="profile__add-button" src="<%=require('./images/plus-btn.svg')%>" alt="кнопка добавить">
                 </button>
 
             </section>
@@ -115,6 +113,6 @@
     <footer class="footer section">
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
-    <script type="module" src="./scripts/index.js"></script>
+    <!-- <script type="module" src="./scripts/index.js"></script> -->
 </body>
 </html>
