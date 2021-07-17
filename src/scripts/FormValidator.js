@@ -1,11 +1,14 @@
 class FormValidator {
-    constructor(config, form) {
+    constructor(config, form, popupSelector) {
+        this._inputSelector = config.inputSelector;
         this._form = document.querySelector(form);
-        this._inputList = document.querySelectorAll(config.inputSelector)
+        //this._inputList = document.querySelectorAll(config.inputSelector)
         this._inputErrorClass = config.inputErrorClass;
         this._errorClass = config.errorClass;
         this._submitButtonSelector = this._form.querySelector(config.submitButtonSelector);
+        this._submitButtonSelectorSelector = config.submitButtonSelector;
         this._disabledButtonClass = config.disabledButtonClass;
+        this._element = document.querySelector(`${popupSelector}`);
     }
     _showInputError = (inputElement) => {
         const errorElement = document.querySelector(`#${inputElement.id}-error`);
@@ -40,7 +43,8 @@ class FormValidator {
         }
     }
     _setEventListeners = () => { 
-        //this._toggleButtonState();
+        this._inputList = Array.from(this._element.querySelectorAll(this._inputSelector));
+        this._buttonElement = this._element.querySelector(this._submitButtonSelectorSelector);
         this._inputList.forEach((inputElement) =>{
             inputElement.addEventListener('input', () =>{
                 this._checkInputValidity(inputElement);

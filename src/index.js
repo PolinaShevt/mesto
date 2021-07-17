@@ -30,10 +30,10 @@ function generateCard(item) {
 
 
 //экземпляры классов валидации для двух форм
-const profileEditFormValidator = new FormValidator(config, '#popup__form-type-edit');
+const profileEditFormValidator = new FormValidator(config, '#popup__form-type-edit', '.popup_type_edit');
 profileEditFormValidator.enableValidation(); 
 
-const addCardFormValidator = new FormValidator(config, '#popup__form-type-add');
+const addCardFormValidator = new FormValidator(config, '#popup__form-type-add', '.popup_type_add');
 addCardFormValidator.enableValidation();
 
 

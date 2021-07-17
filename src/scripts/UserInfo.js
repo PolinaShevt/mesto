@@ -5,13 +5,13 @@ class UserInfo {
     }
     getUserInfo() {
         const userData = {};
-        userData.userName = this._name.textContent;
-        userData.userInfo = this._info.textContent;
+        userData.fullName = this._name.textContent;
+        userData.aboutYou = this._info.textContent;
         return userData;
     }
     setUserInfo(data) {
-        this._name.textContent = data.userName;
-        this._info.textContent = data.userInfo;
+        this._name.textContent = data.fullName;
+        this._info.textContent = data.aboutYou;
     }
 }
 export default UserInfo;
