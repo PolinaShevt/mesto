@@ -87,7 +87,6 @@ function submitAddModal(data) {
 openEditModalButton.addEventListener('click', () => {
   editFormPopup.open();
   profileEditFormValidator.resetValidation();
-  profileEditFormValidator.enableSubmitButton();//чтобы кнопка была активной при открытии
 });
 openAddCardModal.addEventListener('click', () => {
   addFormPopup.open();
