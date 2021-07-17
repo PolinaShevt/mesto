@@ -42,11 +42,12 @@ const config = {
       ]; 
     const openEditModalButton = document.querySelector('.profile__edit-button');
     const openAddCardModal = document.querySelector('.profile__rectangle');
-    const newName = document.getElementById('full-name_input');
-    const newDescription = document.getElementById('about-you__input');
     const newPlaceName = document.getElementById('input_place-name');
     const newPhotoLink = document.getElementById('input_link');
+    const escape = 'Escape';
     
-    export { config, initialCards, openEditModalButton, openAddCardModal, newName, newDescription,  newPlaceName, newPhotoLink };
+    export { config, initialCards, openEditModalButton, 
+      openAddCardModal,  newPlaceName, 
+      newPhotoLink, escape };
 
     

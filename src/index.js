@@ -6,7 +6,7 @@ import './styles/index.css';
 import FormValidator from "./scripts/FormValidator.js";
 import Card from "./scripts/Card.js";
 import { config, initialCards, openEditModalButton, 
-  openAddCardModal, newName, newDescription,  newPlaceName, 
+  openAddCardModal,  newPlaceName, 
   newPhotoLink } from './scripts/Constants.js';
 
 
@@ -30,10 +30,10 @@ function generateCard(item) {
 
 
 //экземпляры классов валидации для двух форм
-const profileEditFormValidator = new FormValidator(config, '.popup_type_edit');
+const profileEditFormValidator = new FormValidator(config, '#popup__form-type-edit');
 profileEditFormValidator.enableValidation(); 
 
-const addCardFormValidator = new FormValidator(config, '.popup_type_add');
+const addCardFormValidator = new FormValidator(config, '#popup__form-type-add');
 addCardFormValidator.enableValidation();
 
 
@@ -62,7 +62,7 @@ const addFormPopup = new PopupWithForm('.popup_type_add', (data) => {
 addFormPopup.setEventListeners();
 
 
-const userUnfo = new UserInfo('.profile__title', '.profile__subtitle');
+const userInfo = new UserInfo('.profile__title', '.profile__subtitle');
 
 function cardCreation(item) {
   const newCard = generateCard(item);
@@ -71,6 +71,7 @@ function cardCreation(item) {
 
 function submitEditModal(data) {
   userInfo.setUserInfo(data);
+  editFormPopup.close();
 }
 
 function submitAddModal(data) {
@@ -85,16 +86,13 @@ function submitAddModal(data) {
 //открытие модальных окон
 openEditModalButton.addEventListener('click', () => {
   editFormPopup.open();
-  const userInfoData = userUnfo.getUserInfo();
-  newName.value =  userInfoData.userName;
-  newDescription.value = userInfoData.userInfo; 
-  profileEditFormValidator.resetInputErrors();
+  profileEditFormValidator.resetValidation();
   profileEditFormValidator.enableSubmitButton();//чтобы кнопка была активной при открытии
 });
 openAddCardModal.addEventListener('click', () => {
   addFormPopup.open();
   newPlaceName.value = '';
   newPhotoLink.value = '';
-  addCardFormValidator.resetInputErrors();//скрывает сообщения об ошибке
+  addCardFormValidator.resetValidation();
   addCardFormValidator.disableSubmitButton();//чтобы кнопка была неактивной после ввода валидных данных и закрытия попапа
 });

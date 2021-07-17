@@ -1,7 +1,9 @@
+import { escape } from "./Constants.js"
 class Popup {
     constructor(popupSelector){
         this._popupSelector = document.querySelector(popupSelector);
         this._handleEscClose = this._handleEscClose.bind(this);
+        this._escape = escape;
     }
     open() {
         this._popupSelector.classList.add('popup_opened');
@@ -12,7 +14,7 @@ class Popup {
         document.removeEventListener('keydown', this._handleEscClose);
     }
     _handleEscClose(evt) {
-        if(evt.key === 'Escape') {
+        if(evt.key === escape) {
             this.close();
         }
     }

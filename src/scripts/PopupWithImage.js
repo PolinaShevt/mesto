@@ -9,6 +9,7 @@ class PopupWithImage extends Popup{
         super.open();
         this._cardPicture.src = link;
         this._cardCaption.textContent = caption;
+        this._cardPicture.alt = caption;
     }
 
 }

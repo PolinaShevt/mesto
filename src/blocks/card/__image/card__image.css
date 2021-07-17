@@ -1,5 +1,13 @@
 .card__image{
+    display: flex;
     width: 100%;
-    height: 282px;
+    max-height: 282px;
+    min-height: 282px;
+    height: 100%;
     object-fit: cover;
+    transition: 0.4s;
+}
+.card__image:hover{
+    box-shadow: 0 0 50px #191a19;
+    transition: 0.4s;
 }
