@@ -7,7 +7,7 @@ import FormValidator from "./scripts/FormValidator.js";
 import Card from "./scripts/Card.js";
 import { config, initialCards, openEditModalButton, 
   openAddCardModal,  newPlaceName, 
-  newPhotoLink } from './scripts/Constants.js';
+  newPhotoLink, newName, newDescription } from './scripts/Constants.js';
 
 
 //экзмепляр класса для попапа просмотра картинки
@@ -86,6 +86,9 @@ function submitAddModal(data) {
 //открытие модальных окон
 openEditModalButton.addEventListener('click', () => {
   editFormPopup.open();
+  const userInfoData = userInfo.getUserInfo();
+  newName.value =  userInfoData.fullName; 
+  newDescription.value = userInfoData.aboutYou;  
   profileEditFormValidator.resetValidation();
 });
 openAddCardModal.addEventListener('click', () => {

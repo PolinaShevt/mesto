@@ -45,9 +45,11 @@ const config = {
     const newPlaceName = document.getElementById('input_place-name');
     const newPhotoLink = document.getElementById('input_link');
     const escape = 'Escape';
+    const newName = document.getElementById('full-name_input'); 
+    const newDescription = document.getElementById('about-you__input'); 
     
     export { config, initialCards, openEditModalButton, 
       openAddCardModal,  newPlaceName, 
-      newPhotoLink, escape };
+      newPhotoLink, escape, newName, newDescription };
 
     
